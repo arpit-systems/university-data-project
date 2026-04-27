@@ -1,19 +1,27 @@
+import streamlit as st
+import sqlite3
+import pandas as pd
 import os
 
+# -------------------------------
+# Create DB if not exists
+# -------------------------------
 if not os.path.exists("cms.db"):
     conn = sqlite3.connect("cms.db")
     cursor = conn.cursor()
 
-    with open("setup.sql", "r") as f:
-        cursor.executescript(f.read())
+    try:
+        with open("../setup.sql", "r") as f:
+            cursor.executescript(f.read())
+    except Exception as e:
+        st.error(f"Error loading setup.sql: {e}")
 
     conn.commit()
     conn.close()
-import streamlit as st
-import sqlite3
-import pandas as pd
 
-# connect to SQLite database
+# -------------------------------
+# Connect to DB
+# -------------------------------
 conn = sqlite3.connect("cms.db")
 
 st.title("University Data Dashboard")
