@@ -11,7 +11,8 @@ if not os.path.exists("cms.db"):
     cursor = conn.cursor()
 
     try:
-        with open("../setup.sql", "r") as f:
+        # ✅ FIXED PATH (IMPORTANT)
+        with open("setup.sql", "r") as f:
             cursor.executescript(f.read())
     except Exception as e:
         st.error(f"Error loading setup.sql: {e}")
