@@ -32,5 +32,5 @@ This project demonstrates a complete relational database system built using SQL.
 * Relational Database Design
 
 ## 🔹 Project Purpose
-To showcase SQL proficiency through relational database design, data modeling, and solving real-world analytical problems using structured queries.
+To showcase SQL proficiency through relational database design, data modeling and solving real-world analytical problems using structured queries.
 
