@@ -1,3 +1,14 @@
+import os
+
+if not os.path.exists("cms.db"):
+    conn = sqlite3.connect("cms.db")
+    cursor = conn.cursor()
+
+    with open("setup.sql", "r") as f:
+        cursor.executescript(f.read())
+
+    conn.commit()
+    conn.close()
 import streamlit as st
 import sqlite3
 import pandas as pd
